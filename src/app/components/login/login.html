@@ -1,0 +1,34 @@
+<h1>
+    Login page
+</h1>
+@if(serverOptions() && serverOptions().length > 0){
+<form [formGroup]="loginForm">
+
+    <div>
+        <label for="name">Username</label>
+        <input id="name" type="text" formControlName="name" />
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input id="password" type="password" formControlName="password" />
+    </div>
+    <div>
+        <label for="server">Select a server</label>
+        <select id="server">
+            @for(server of serverOptions(); track server.id){
+            <option [disabled]="!server.online" [value]="server.id">
+                {{server.name}} - {{server.online ? 'Available' : 'Unavailable'}}
+            </option>
+            }
+        </select>
+    </div>
+    <div class="login-submit">
+        <button>Register</button>
+        <button>Login</button>
+    </div>
+
+</form>
+}
+@else {
+<h2 id="empty-servers">No server available, please try again later.</h2>
+}
