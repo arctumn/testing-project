@@ -4,7 +4,7 @@ import { Login } from './login';
 import { provideZonelessChangeDetection } from '@angular/core';
 import { of } from 'rxjs';
 import { ReactiveFormsModule } from '@angular/forms';
-import { LoginService } from '../../services/login';
+import { LoginService } from '../../services/login.service';
 
 describe('Login Component', () => {
   let component: Login;
@@ -49,7 +49,7 @@ describe('Login Component', () => {
       expect(query.length).toBe(1)
     })
 
-    it('Should have an  option with the name "Portugal - Available"', () => {
+    it('Should have an option with the name "Portugal - Available"', () => {
       fixture.detectChanges()
 
       const compiledElement = fixture.nativeElement as HTMLElement

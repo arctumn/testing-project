@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LoginService } from './login';
+import { LoginService } from './login.service';
 import { provideZonelessChangeDetection } from '@angular/core';
 
 describe('Login Service', () => {

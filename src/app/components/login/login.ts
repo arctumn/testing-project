@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, Inject, OnDestroy, OnInit, 
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { ServerOption } from '../../models/server';
-import { LoginService } from '../../services/login';
+import { LoginService } from '../../services/login.service';
 
 @Component({
   selector: 'app-login',
