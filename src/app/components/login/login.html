@@ -3,14 +3,13 @@
 </h1>
 @if(serverOptions() && serverOptions().length > 0){
 <form [formGroup]="loginForm">
-
     <div>
         <label for="name">Username</label>
-        <input id="name" type="text" formControlName="name" />
+        <input placeholder="Username" id="name" type="text" formControlName="name" />
     </div>
     <div>
         <label for="password">Password</label>
-        <input id="password" type="password" formControlName="password" />
+        <input placeholder="Password" id="password" type="password" formControlName="password" />
     </div>
     <div>
         <label for="server">Select a server</label>
@@ -23,8 +22,8 @@
         </select>
     </div>
     <div class="login-submit">
-        <button>Register</button>
-        <button>Login</button>
+        <button (click)="navigateToRegister()">Register</button>
+        <button [disabled]="loginForm.invalid" (click)="login()">Login</button>
     </div>
 
 </form>

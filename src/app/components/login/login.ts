@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { Observable, Subject, takeUntil } from 'rxjs';
 import { ServerOption } from '../../models/server';
 import { LoginService } from '../../services/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -16,18 +17,18 @@ export class Login implements OnInit, OnDestroy {
   destroy$: Subject<void> = new Subject()
   formBuilder = inject(FormBuilder)
   serverService = inject(LoginService)
+  router = inject(Router)
   serverOptions: WritableSignal<ServerOption[]> = signal([])
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
       name: ['',[Validators.required]],
-      password: ['',Validators.required],
-      server: [1,Validators.required]
+      password: ['',[Validators.required]],
+      server: [1,[Validators.required]]
     })
     this.serverService.getAllServers()
     .pipe(takeUntil(this.destroy$))
     .subscribe(options => {
-      console.log("Servers has changed")
       this.serverOptions.set(options)
     })
   }
@@ -36,4 +37,12 @@ export class Login implements OnInit, OnDestroy {
     this.destroy$.complete()
   }
   
+  navigateToRegister() {
+    this.router.navigateByUrl("/register")
+  }
+  login() {
+    throw new Error('Method not implemented.');
+  }
+
+
 }
