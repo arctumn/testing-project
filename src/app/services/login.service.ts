@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { ServerOption } from '../models/server';
+import { ServerOption } from '../models/ServerOption';
 import { BehaviorSubject} from 'rxjs';
 
 @Injectable({

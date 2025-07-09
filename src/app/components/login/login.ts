@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, inject, Inject, OnDestroy, OnInit, signal, WritableSignal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Observable, Subject, takeUntil } from 'rxjs';
-import { ServerOption } from '../../models/server';
+import { ServerOption } from '../../models/ServerOption';
 import { LoginService } from '../../services/login.service';
 import { Router } from '@angular/router';
 

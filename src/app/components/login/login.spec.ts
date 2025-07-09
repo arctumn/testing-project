@@ -57,7 +57,7 @@ describe('Login Component', () => {
       expect(query.text).toBe('Portugal - Available')
     })
 
-    it('Expected the form to be fullfiled with the formGroup updated values', async () => {
+    it('Expected the form to be fullfiled with the formGroup updated values', () => {
       component.loginForm.patchValue({
         name: 'Pedro',
         password: 'Lopes',
