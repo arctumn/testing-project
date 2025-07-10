@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class Dashboard implements OnInit, OnDestroy {
-  user!:User
+  user!:WritableSignal<User>
   servers!: WritableSignal<ServerOption[]>
   selectedServer!: Signal<ServerOption | null>
   destroy$: Subject<void> = new Subject()
@@ -21,9 +21,9 @@ export class Dashboard implements OnInit, OnDestroy {
   loading:WritableSignal<boolean> = signal(false)
   router = inject(Router)
   ngOnInit(){
-    this.user = JSON.parse(sessionStorage.getItem("user") || "{}") as User;
+    this.user = signal(JSON.parse(sessionStorage.getItem("user") || "{}") as User);
     this.servers = signal([])
-    this.selectedServer = computed(() => this.servers().find(server => server.id == this.user.server) || null)
+    this.selectedServer = computed(() => this.servers().find(server => server.id == this.user().server) || null)
     this.loadServers()
   }
   ngOnDestroy(): void {

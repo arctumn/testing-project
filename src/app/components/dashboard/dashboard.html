@@ -1,4 +1,4 @@
-<h1>Hello, {{user.username}}</h1>
+<h1>Hello, {{user().username}}</h1>
 @defer (when !loading()) {
     @if(selectedServer()){
         <p>You are connected to server <strong>{{selectedServer()?.name}}</strong></p>
