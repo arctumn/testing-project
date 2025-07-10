@@ -8,5 +8,9 @@ export const routes: Routes = [
     {
         path:'register',
         loadComponent: () => import('../app/components/register/register.component').then(c => c.RegisterComponent)
+    },
+    {
+        path: 'dashboard',
+        loadComponent: () => import('../app/components/dashboard/dashboard').then(c => c.Dashboard)
     }
 ];

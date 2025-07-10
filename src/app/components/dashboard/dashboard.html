@@ -1,0 +1,12 @@
+<h1>Hello, {{user.username}}</h1>
+@defer (when !loading()) {
+    @if(selectedServer()){
+        <p>You are connected to server <strong>{{selectedServer()?.name}}</strong></p>
+    }
+    @else {
+        <p>You are not connected to any server please login again and select a server</p>
+        <button onclick="logout()">Logout</button>
+    }
+} @placeholder {
+    <p>We are fetching you current server please wait.</p>
+}

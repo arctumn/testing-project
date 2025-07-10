@@ -59,7 +59,7 @@ describe('Login Component', () => {
 
     it('Expected the form to be fullfiled with the formGroup updated values', () => {
       component.loginForm.patchValue({
-        name: 'Pedro',
+        username: 'Pedro',
         password: 'Lopes',
         server: 1
       });

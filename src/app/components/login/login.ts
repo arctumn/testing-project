@@ -22,8 +22,8 @@ export class Login implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      name: ['',[Validators.required]],
-      password: ['',[Validators.required]],
+      username: ['',[Validators.required]],
+      password: ['',[Validators.required, Validators.minLength(8)]],
       server: [1,[Validators.required]]
     })
     this.serverService.getAllServers()
@@ -41,7 +41,8 @@ export class Login implements OnInit, OnDestroy {
     this.router.navigateByUrl("/register")
   }
   login() {
-    throw new Error('Method not implemented.');
+    sessionStorage.setItem("user", JSON.stringify(this.loginForm.value))
+    this.router.navigateByUrl("/dashboard")
   }
 
 
